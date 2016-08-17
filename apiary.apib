@@ -160,48 +160,162 @@ Annotation is an API allowing clients to get recommendations in different contex
             }
         ]
 
-### Create a New Question [POST]
+## Software expertise collection [/expertise]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### Returns a collection of software expertise. [GET]
 
-+ Request (application/json)
+If successful, this method returns a collection of strings representing the software expertises in the response body.
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
++ Request
 
     + Headers
+    
+            Authorization: Basic 12345
+    
++ Response 200 (application/json)
 
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+        [
+            "Tests",
+            "Requirements",
+            "Functional Architecture",
+            "Technical Architecture",
+            "Tasks",
+            "Business Case",
+            "Implementation",
+            "Default",
+            "Social Skills",
+            "Communication",
+            "Active Listening",
+            "Feedback",
+            "Peer-to-peer Sparring",
+            "Motivation",
+            "Leading without power",
+            "Intrinsic motivation",
+            "Leadership",
+            "SMART",
+            "Patterns",
+            "Half-object",
+            "Iterator Pattern",
+            "Batch Method Pattern",
+            "Enumeration Method Pattern",
+            "Combined Method Pattern",
+            "Batched Iterator Pattern",
+            "Pattern language",
+            "Software Architecture",
+            "Design",
+            "Strategic Design",
+            "Tactical Design",
+            "Forces",
+            "Architecture View",
+            "Architecture Process",
+            "Reference Architecture",
+            "Component",
+            "Architecture Approach",
+            "System Scoping",
+            "Domain Scoping",
+            "Baseline architecture",
+            "Quality feedback loop",
+            "Usability",
+            "Architecture Vision",
+            "Design Tactics",
+            "Quality attribute",
+            "Quality attribute scenario",
+            "Architecture View",
+            "Architecture Documentation",
+            "Refactoring",
+            "Reengineering",
+            "Rewriting",
+            "Architecture smell",
+            "Architecture Review",
+            "Simulation",
+            "Code Quality Assessment",
+            "Quantitative Review",
+            "Qualitative Review",
+            "Active Design Review",
+            "Industry Practice Review",
+            "SAAM",
+            "ATAM",
+            "Utility Tree",
+            "ISO 9126-1",
+            "Volere",
+            "Quality attribute",
+            "NFR",
+            "Non-functional requirement",
+            "Kano",
+            "Fishbone",
+            "Utility tree",
+            "Quality Attribute Workshop",
+            "Requirements Engineering",
+            "SysML",
+            "Baselines",
+            "Traceability",
+            "Requirements Specification Checklist",
+            "Software Testing",
+            "Test exit criteria",
+            "Bugs",
+            "Test progress",
+            "Coverage",
+            "Risk-based testing",
+            "Test levels",
+            "Integration test",
+            "System test",
+            "Design for testability",
+            "Logging tracing",
+            "Testing tactics",
+            "Test design methods",
+            "Test basis",
+            "Test case",
+            "Dimensions of testing",
+            "Test design methods poster",
+            "Traceability matrix",
+            "Use-case-based testing",
+            "State-based testing",
+            "white-box testing",
+            "Unit tests",
+            "Test-driven development ",
+            "TDD",
+            "CQM",
+            "Architecture Analysis",
+            "Architecture Improvement",
+            "System Development ",
+            "Test",
+            "Architecture Quality Characteristics",
+            "Test Automation Management",
+            "Software Engineering",
+            "Architecture Definition and Management",
+            "Systems Engineering",
+            "Architecture Tracking",
+            "Architecture Lifecycle Management",
+            "Model Driven Development",
+            "Model Quality Assurance",
+            "Model-Based Architecture Development",
+            "Traceable Architecture Violation Management",
+            "Performance Engineering for Container-based Ecosystems",
+            "Agile Data Techniques",
+            "Product Line Engineering",
+            "Software Architecture in Dedicated Systems",
+            "Development Efficiency",
+            "Business Architecture Alignment",
+            "User Experience Design",
+            "User Interface",
+            "Software Ecosystems",
+            "Agile",
+            "Agility ",
+            "SCRUM",
+            "KANBAN",
+            "Dependability",
+            "Dependable systems",
+            "Architecture Modeling",
+            "Domain specific Language",
+            "DSL",
+            "Data",
+            "Data modeling",
+            "Data analytics",
+            "Cloud",
+            "Design thinking",
+            "Design Smells",
+            "Code Audit",
+            "Design Audit",
+            "Design Quality Assessment",
+            "Security"
+        ]
