@@ -1,0 +1,207 @@
+FORMAT: 1A
+HOST: http://aaeinblr01828d.ww888.siemens.net:8443/amelie/webapi/km
+
+# Annotation API
+
+Annotation is an API allowing clients to get recommendations in different contexts.
+
+## Experts collection [/experts]
+
+### Get experts [GET]
+
++ Response 200 (plain/text)
+
+        Geht
+
+## Categories Collection [/categories]
+
+### Get provided categories [GET]
+
++ Response 401
+    
+    + Headers
+
+            WWW-Authenticate: Basic realm="protected"
+
++ Request
+
+    + Headers
+    
+            Authorization: Basic 12345
+        
++ Response 200 (application/json)
+
+        [
+            {
+                "categories": 
+                [
+                    {
+                        "id": 1,
+                        "name": "Software architecture description"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Requirements"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Use Cases"
+                    },
+                    {
+                        "id": 4,
+                        "name": "user stories"
+                    }
+                ]
+            }
+        ]
+        
++ Response 401 (text/plain)
+
+        Anonymous access to AMELIE Rest API is not allowed
+    
++ Response 403 (text/plain)
+
+        Cannot find the requested resource here
+        
+## Template Collection [/templates]
+
+### Get all templates [GET]
+                
++ Response 200 (application/json)
+
+        [
+            {
+                "templates": 
+                [
+                    {
+                        "id": 1,
+                        "name": "Task"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Business Case"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Requirements"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Functional architecture"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Technical architecture"
+                    }
+                ]
+            }
+        ]
+
+### Get a template [GET /templates/{name}]
+
++ Parameters
+    
+    + name: Requirements
+    
++ Response 200 (application/json)
+        
+        [
+            {
+                "id": "3",
+                "name": "Requirements"
+            }
+        ]
+
+### Get templates by category [GET/templates/byCategory/{categoryID}]
+
++ Parameters
+
+    + categoryID: 2
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "id":  3,
+                "name": "Requirements"
+            },
+            {
+                "id": 4,
+                "name": "Technical architecture"
+            }
+        ]
+
+
+## Recommendation collection [/recommendations]
+
+### Get provided recommendations [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
+            }
+        ]
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
