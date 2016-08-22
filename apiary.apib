@@ -3,15 +3,7 @@ HOST: http://aaeinblr01828d.ww888.siemens.net:8443/amelie/webapi/km
 
 # Annotation API
 
-Annotation is an API allowing clients to get recommendations in different contexts.
-
-## Experts collection [/experts]
-
-### Get experts [GET]
-
-+ Response 200 (plain/text)
-
-        Geht
+Annotation is an API allowing clients to get templates and recommendations based on different contexts and types.
 
 ## Categories Collection [/categories]
 
@@ -63,9 +55,253 @@ Annotation is an API allowing clients to get recommendations in different contex
 
         Cannot find the requested resource here
         
+## Experts collection [/experts?expertise=]
+
+### Returns a collection of software experts [GET]
+
+If successful, this method returns a collection of Expert resources in the response body.
+
++ Request
+
+    + Headers
+    
+            Authorization: Basic 12345
+
++ Parameters
+
+    + expertise: Software+Ecosystem   Parameter which indicates that the complete list of experts have to be filtered based on expertise. API returns the experts which match the expertise parameter. If unspecified, API returns complete list of experts
+    
++ Response 200 (application/json)
+        
+        [
+            {
+                "contact": "+49 (9131) 7-30483",
+                "dept": " CT RTC SSI ADM-DE",
+                "email": "@siemens.com",
+                "expertise": [
+                    "Software Architecture",
+                    "Architecture Definition and Management",
+                    "Component",
+                    "Architecture Vision",
+                    "Architecture Approach",
+                    "Design",
+                    "Reference Architecture",
+                    "Architecture Review",
+                    "Quality feedback loop",
+                    "Architecture Improvement",
+                    "Forces",
+                    "Architecture Analysis",
+                    "Architecture Process",
+                    "Architecture View",
+                    "Domain Scoping",
+                    "System Scoping",
+                    "Product Line Engineering",
+                    "Traceable Architecture Violation Management",
+                    "Baseline architecture",
+                    "Strategic Design",
+                    "Tactical Design",
+                    "Software Ecosystems"
+                ],
+                "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/schoenberger_a.jpg",
+                "initials": null,
+                "name": "Andreas Schoenberger"
+            },
+            {
+                "contact": "+49 (173) 2560707",
+                "dept": "CT RDA SSI",
+                "email": "christopher.drexler@siemens.com",
+                "expertise": [
+                    "Software Architecture",
+                    "Architecture Definition and Management",
+                    "Motivation",
+                    "Architecture Vision",
+                    "Design",
+                    "Leading without power",
+                    "Reference Architecture",
+                    "Architecture Review",
+                    "Architecture Process",
+                    "Technical Architecture",
+                    "Product Line Engineering",
+                    "Leadership",
+                    "Strategic Design",
+                    "Tactical Design",
+                    "Software Ecosystems"
+                ],
+                "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/drexler_c.jpg",
+                "initials": null,
+                "name": "Christopher Drexler"
+            }
+        ]
+
+## Knowlegde Methods collection [/knowledgemethods?searchString=]
+
+### Returns the list of knowledge methods containing the given search string or all, if search string is omitted [GET]
+
+If successful, this method returns a collection of KnowledgeMethod resource in the response body.
+
++ Request
+
+    + Headers
+    
+            Authorization: Basic 12345
+
++ Parameters
+
+    + searchString: Model+Based    Parameter which indicates the search string to look for. API returns the knowledge methods which match the search string. If unspecified, API returns complete list of knowledge methods.
+    
++ Response 200 (application/json)
+        
+        [
+            {
+                "description": "Model-based architecture simulation combines a model based architecture development approach with a simulation method",
+                "experts": [],
+                "name": "Model-Based Architecture Simulation",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_architecture_simulation/index.htm"
+            },
+            {
+                "description": "Model-based architecture development approaches provide ways to handle the complexity of modern system and software architectures",
+                "experts": [],
+                "name": "Model-Based Architecture Development",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_architecture_development/index.htm"
+            },
+            {
+                "description": "Model-based architecture simulation combines a model based architecture development approach with a simulation method",
+                "experts": [],
+                "name": "Model-Based Architecture Simulation",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_architecture_simulation/index.htm"
+            },
+            {
+                "description": "The approach identifies whether or not independent applications that run on the same hardware receive enough resources for meeting their performance goals at all times",
+                "experts": [],
+                "name": "Performance Engineering for Container-based Ecosystems",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/performance_engineering_for_container-based_ecosystems/index.htm"
+            },
+            {
+                "description": "Model-based approaches provide ways to handle the complexity of modern system and software developments",
+                "experts": [],
+                "name": "Seamless Software and System Modeling",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/seamless_software_and_system_modeling/index.htm"
+            },
+            {
+                "description": "For Product Line Engineering a model-based approach helps to fully gain the benefits of Product Line Engineering by providing a consistent and structured basis for analysis",
+                "experts": [],
+                "name": "Model-Based Product Line Engineering",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_product_line_engineering/index.htm"
+            },
+            {
+                "description": "Model-driven development approaches provide ways to handle the complexity of modern system and software developments",
+                "experts": [],
+                "name": "Model Driven Development",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model_driven_development/index.htm"
+            },
+            {
+                "description": "For Product Line Engineering a model-based approach helps to fully gain the benefits of Product Line Engineering by providing a consistent and structured basis for analysis",
+                "experts": [],
+                "name": "Model-Based Product Line Engineering",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_product_line_engineering/index.htm"
+            },
+            {
+                "description": "The Software Ecosystem (SECO) modeling appraoch allows for structured capturing of ecosystems and their contained roles/actors and corresponding value flows",
+                "experts": [
+                    {
+                        "contact": null,
+                        "dept": "CT RDA SSI SDT-IN",
+                        "email": "@siemens.com",
+                        "expertise": [
+                            "Design thinking",
+                            "Usability"
+                        ],
+                        "imageurl": null,
+                        "initials": null,
+                        "name": "Bettina Maisch"
+                    }
+                ],
+                "name": "Software Ecosystem Modeling",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/software_ecosystem_modeling/index.htm"
+            },
+            {
+                "description": "Model-based development approaches provide ways to handle the complexity of modern system and software systems",
+                "experts": [],
+                "name": "Model Quality Assurance",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model_quality_assurance/index.htm"
+            },
+            {
+                "description": "Model-based architecture development approaches provide ways to handle the complexity of modern system and software architectures",
+                "experts": [],
+                "name": "Model-Based Architecture Development",
+                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_architecture_development/index.htm"
+            }
+        ]
+
+## Knowlegde Methods Insert [/knowledgemethods]
+
+### Inserts a new knowledge method resource into the AMELIE database [POST]
+
+If successful, this method returns a KnowledgeMethod resource in the response body.
+
++ Request
+
+    + Headers
+    
+            Authorization: Basic 12345
+
+    + Body
+    
+            [
+                {
+                    "description": "The awesomest knowledge method ever.",
+                    "experts": 
+                    [
+                        {
+                            "contact": "9740123456",
+                            "dept": "CT RDA SSI SDT-IN",
+                            "email": "elroy.dsilva@siemens.com",
+                            "expertise": 
+                            [
+                                "Design thinking",
+                                "Usability"
+                            ],
+                            "imageurl": null,
+                            "initials": null,
+                            "name": "Elroy Dsilva"
+                        }
+                    ],
+                    "name": "Awesome Knowledge Method - REST TEST",
+                    "url": "https://www.awesomekm.net"
+                }
+            ]
+            
++ Response 200 (application/json)
+    
+        [    
+           {
+            "name": "Awesome Knowledge Method - REST TEST",
+            "description": "The awesomest knowledge method ever.",
+            "url": "https://www.awesomekm.net"
+            "experts": 
+                [
+                    {
+                        "contact": "9740123456",
+                        "dept": "CT RDA SSI SDT-IN",
+                        "email": "elroy.dsilva@siemens.com",
+                        "expertise": 
+                            [
+                                "Design thinking",
+                                "Usability"
+                            ],
+                        "imageurl": null,
+                        "initials": null,
+                        "name": "Elroy Dsilva"
+                    }
+                ]
+            }
+        ]
+        
 ## Template Collection [/templates]
 
-### Get all templates [GET]
+## DocTypes Collection [/doctypes]
+
+### Get provided document types [GET]
                 
 + Response 200 (application/json)
 
@@ -97,37 +333,45 @@ Annotation is an API allowing clients to get recommendations in different contex
             }
         ]
 
-### Get a template [GET /templates/{name}]
+## Document Template Collection [/doctemplates]
+
+### Get a document template by name [GET /doctemplates/{name}]
 
 + Parameters
     
-    + name: Requirements
+    + name: requirements
     
 + Response 200 (application/json)
         
         [
             {
                 "id": "3",
-                "name": "Requirements"
+                "type": requirements",
+                "name": "Requirements",
+                "html": "<head><body><table></table><tr><td>Requirements html template here</td></tr></body></head>"
             }
         ]
 
-### Get templates by category [GET/templates/byCategory/{categoryID}]
+### Get document template by type [GET/doctemplates/byType/{type}]
 
 + Parameters
 
-    + categoryID: 2
+    + type: requirements
     
 + Response 200 (application/json)
 
         [
             {
                 "id":  3,
-                "name": "Requirements"
+                "type": requirements",
+                "name": "Requirements",
+                "html": "<head><body><table></table><tr><td>Requirements html template here</td></tr></body></head>"
             },
             {
                 "id": 4,
+                "type": requirements"
                 "name": "Technical architecture"
+                "html": "<head><body><table></table><tr><td>Technical architecture html template here</td></tr></body></head>"
             }
         ]
 
@@ -159,6 +403,81 @@ Annotation is an API allowing clients to get recommendations in different contex
                 ]
             }
         ]
+
+## Recommendation collection by document type [/recommendations?type=]
+
+### Get provided recommendations by document type [GET]
+
++ Parameters
+
+    + type: requirements
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
+            }
+        ]
+
+## Document templates collection [/doctemplates?searchString=]
+
+### Returns the list of document templates present in AMELIE [GET]
+
+If successful, this method returns a collection of DocumentTemplate resource in the response body.
+
++ Request
+
+    + Headers
+    
+            Authorization: Basic 12345
+
++ Parameters
+
+    + searchString: Functional+Architecture    Parameter which indicates that the complete list of document templates have to be filtered based on the input 'searchstring' parameter. API returns the document templates which match the parameter. If unspecified, API returns complete list of document templates.
+    
++ Response 200 (application/json)
+    
+        [
+            {
+                "id": 3,
+                "keyword": "Functional Architecture",
+                "name": "Arc42 Template",
+                "path": "https://132.186.214.9:8443/amelie/resources/assets/Document_Templates/Functional Architecture/Arc42-Template.docx",
+                "type": "docx"
+            },
+            {
+                "id": 4,
+                "keyword": "Functional Architecture",
+                "name": "Architecture Documentation-IDA (Best Practice)",
+                "path": "https://132.186.214.9:8443/amelie/resources/assets/Document_Templates/Functional Architecture/Architecture_Documentation-IDA.doc",
+                "type": "doc"
+            },
+            {
+                "id": 5,
+                "keyword": "Functional Architecture",
+                "name": "SSWA Template",
+                "path": "https://132.186.214.9:8443/amelie/resources/assets/Document_Templates/Functional Architecture/SSWA-Template.doc",
+                "type": "doc"
+            }
+        ]
+
 
 ## Software expertise collection [/expertise]
 
