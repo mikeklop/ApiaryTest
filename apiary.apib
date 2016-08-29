@@ -5,6 +5,140 @@ HOST: http://aaeinblr01828d.ww888.siemens.net:8443/amelie/webapi/km
 
 Annotation is an API allowing clients to get templates and recommendations based on different contexts and types.
 
+## SECO keywords Collection [/secokeywords]
+
+### Get provided SECO card keywords [GET]
+
++ Response 401
+    
+    + Headers
+
+            WWW-Authenticate: Basic realm="protected"
+
++ Request
+
+    + Headers
+    
+            Authorization: Basic 12345
+        
++ Response 200 (application/json)
+
+        [
+            {
+                "secokeywords":
+                [
+                    {
+                        "standard": ["Embrace und Extend", "One Way Street"]
+                    },
+                    {
+                        "proprietary": ["Embrace und Extend", "One Way Street"]
+                    }, 
+                    {
+                        "partner": ["Gate Keeper", "Pay for Influence"]
+                    },
+                    {
+                        "contribution": ["Gate Keeper"]
+                    },
+                    {
+                        "partner contribution": ["Gate Keeper"]
+                    },
+                    {
+                        "add-on": ["Gate Keeper"]
+                    },
+                    {
+                        "plug-in": ["Gate Keeper"]
+                    },
+                    {
+                        "sandbox": ["Sandbox"]
+                    },
+                    {
+                        "isolation": ["Sandbox"]
+                    },
+                    {
+                        "restricted access": ["Sandbox"]
+                    },
+                    {
+                        "partner management": ["Pay for Influence"]
+                    },
+                    {
+                        "membership": ["Pay for Influence"]
+                    },
+                    {
+                        "deployment": ["Rollout Waves"]
+                    },
+                    {
+                        "rollout": ["Rollout Waves"]
+                    },
+                    {
+                        "foundation": ["Open up"]
+                    },
+                    {
+                        "consortium": ["Open up"]
+                    },
+                    {
+                        "open": ["Open up"]
+                    },
+                    {
+                        "life cycle": ["Release Train"]
+                    },
+                    {
+                        "release": ["Release Train"]
+                    },
+                    {
+                        "release train": ["Release Train"]
+                    },
+                    {
+                        "interface": ["Immutable interfaces"]
+                    },
+                    {
+                        "interfaces": ["Immutable interfaces"]
+                    },
+                    {
+                        "immutable interfaces": ["Immutable interfaces"]
+                    },
+                    {
+                        "compatibility": ["App Detection by Platform"]
+                    },
+                    {
+                        "public information": ["Questions & Answers"]
+                    },
+                    {
+                        "app awareness": ["App Detection by Platform"]
+                    },
+                    {
+                        "questions": ["Questions & Answers"]
+                    },
+                    {
+                        "answers": ["Questions & Answers"]
+                    },
+                    {
+                        "socumentation": ["Questions & Answers"]
+                    },
+                    {
+                        "user group": ["User Group"]
+                    },
+                    {
+                        "quality assurance": ["User Group"]
+                    },
+                    {
+                        "quality": ["User Group"]
+                    },
+                    {
+                        "special interest group": ["User Group"]
+                    }
+                ]                
+            }
+        ]
+
+        
++ Response 401 (text/plain)
+
+        Anonymous access to AMELIE Rest API is not allowed
+    
++ Response 403 (text/plain)
+
+        Cannot find the requested resource here
+
 ## Categories Collection [/categories]
 
 ### Get provided categories [GET]
@@ -302,53 +436,48 @@ If successful, this method returns a KnowledgeMethod resource in the response bo
 ## DocTypes Collection [/doctypes]
 
 ### Get provided document types [GET]
-                
+             
+If successful, this method returns a collection of different document types, eg. 'Interface specification'.
+
 + Response 200 (application/json)
 
         [
             {
-                "templates": 
-                [
-                    {
-                        "id": 1,
-                        "name": "Task"
-                    },
-                    {
-                        "id": 2,
-                        "name": "Business Case"
-                    },
-                    {
-                        "id": 3,
-                        "name": "Requirements"
-                    },
-                    {
-                        "id": 4,
-                        "name": "Functional architecture"
-                    },
-                    {
-                        "id": 5,
-                        "name": "Technical architecture"
-                    }
-                ]
+                "id": 1,
+                "name": "Interface specification"
+            },
+            {
+                "id": 2,
+                "name": "Feature Specification"
+            },
+            {
+                "id": 3,
+                "name": "Solution Architecture"
+            },
+            {
+                "id": 4,
+                "name": "Use case"
             }
         ]
 
-## Document Template Collection [/doctemplates]
+## Document Type Template Collection [/doctypetemplates]
 
-### Get a document template by name [GET /doctemplates/{name}]
+### Get document templates related to the id of the given document type  [GET /doctypetemplates?docTypeId=]
+
+If successful, this method returns a collection of different document type templates based on the id of the given document type, eg. 1 = 'Interface specification'.
 
 + Parameters
     
-    + name: requirements
+    + docTypeId: 1
     
 + Response 200 (application/json)
         
         [
             {
-                "id": "3",
-                "type": requirements",
-                "name": "Requirements",
-                "html": "<head><body><table></table><tr><td>Requirements html template here</td></tr></body></head>"
+                "id": "1",
+                "type": "Interface specification",
+                "name": "Interface specification",
+                "html": "<head><body><table></table><tr><td>Interface specification html template here</td></tr></body></head>"
             }
         ]
 
