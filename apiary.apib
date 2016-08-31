@@ -25,161 +25,106 @@ Annotation is an API allowing clients to get templates and recommendations based
 
         [
             {
-                "secokeywords":
-                [
-                    {
-                        "standard": ["Embrace und Extend", "One Way Street"]
-                    },
-                    {
-                        "proprietary": ["Embrace und Extend", "One Way Street"]
-                    }, 
-                    {
-                        "partner": ["Gate Keeper", "Pay for Influence"]
-                    },
-                    {
-                        "contribution": ["Gate Keeper"]
-                    },
-                    {
-                        "partner contribution": ["Gate Keeper"]
-                    },
-                    {
-                        "add-on": ["Gate Keeper"]
-                    },
-                    {
-                        "plug-in": ["Gate Keeper"]
-                    },
-                    {
-                        "sandbox": ["Sandbox"]
-                    },
-                    {
-                        "isolation": ["Sandbox"]
-                    },
-                    {
-                        "restricted access": ["Sandbox"]
-                    },
-                    {
-                        "partner management": ["Pay for Influence"]
-                    },
-                    {
-                        "membership": ["Pay for Influence"]
-                    },
-                    {
-                        "deployment": ["Rollout Waves"]
-                    },
-                    {
-                        "rollout": ["Rollout Waves"]
-                    },
-                    {
-                        "foundation": ["Open up"]
-                    },
-                    {
-                        "consortium": ["Open up"]
-                    },
-                    {
-                        "open": ["Open up"]
-                    },
-                    {
-                        "life cycle": ["Release Train"]
-                    },
-                    {
-                        "release": ["Release Train"]
-                    },
-                    {
-                        "release train": ["Release Train"]
-                    },
-                    {
-                        "interface": ["Immutable interfaces"]
-                    },
-                    {
-                        "interfaces": ["Immutable interfaces"]
-                    },
-                    {
-                        "immutable interfaces": ["Immutable interfaces"]
-                    },
-                    {
-                        "compatibility": ["App Detection by Platform"]
-                    },
-                    {
-                        "public information": ["Questions & Answers"]
-                    },
-                    {
-                        "app awareness": ["App Detection by Platform"]
-                    },
-                    {
-                        "questions": ["Questions & Answers"]
-                    },
-                    {
-                        "answers": ["Questions & Answers"]
-                    },
-                    {
-                        "socumentation": ["Questions & Answers"]
-                    },
-                    {
-                        "user group": ["User Group"]
-                    },
-                    {
-                        "quality assurance": ["User Group"]
-                    },
-                    {
-                        "quality": ["User Group"]
-                    },
-                    {
-                        "special interest group": ["User Group"]
-                    }
-                ]                
-            }
-        ]
-
-        
-+ Response 401 (text/plain)
-
-        Anonymous access to AMELIE Rest API is not allowed
-    
-+ Response 403 (text/plain)
-
-        Cannot find the requested resource here
-
-## Categories Collection [/categories]
-
-### Get provided categories [GET]
-
-+ Response 401
-    
-    + Headers
-
-            WWW-Authenticate: Basic realm="protected"
-
-+ Request
-
-    + Headers
-    
-            Authorization: Basic 12345
-        
-+ Response 200 (application/json)
-
-        [
+                "standard": ["Embrace und Extend", "One Way Street"]
+            },
             {
-                "categories": 
-                [
-                    {
-                        "id": 1,
-                        "name": "Software architecture description"
-                    },
-                    {
-                        "id": 2,
-                        "name": "Requirements"
-                    },
-                    {
-                        "id": 3,
-                        "name": "Use Cases"
-                    },
-                    {
-                        "id": 4,
-                        "name": "user stories"
-                    }
-                ]
+                "proprietary": ["Embrace und Extend", "One Way Street"]
+            }, 
+            {
+                "partner": ["Gate Keeper", "Pay for Influence"]
+            },
+            {
+                "contribution": ["Gate Keeper"]
+            },
+            {
+                "partner contribution": ["Gate Keeper"]
+            },
+            {
+                "add-on": ["Gate Keeper"]
+            },
+            {
+                "plug-in": ["Gate Keeper"]
+            },
+            {
+                "sandbox": ["Sandbox"]
+            },
+            {
+                "isolation": ["Sandbox"]
+            },
+            {
+                "restricted access": ["Sandbox"]
+            },
+            {
+                "partner management": ["Pay for Influence"]
+            },
+            {
+                "membership": ["Pay for Influence"]
+            },
+            {
+                "deployment": ["Rollout Waves"]
+            },
+            {
+                "rollout": ["Rollout Waves"]
+            },
+            {
+                "foundation": ["Open up"]
+            },
+            {
+                "consortium": ["Open up"]
+            },
+            {
+                "open": ["Open up"]
+            },
+            {
+                "life cycle": ["Release Train"]
+            },
+            {
+                "release": ["Release Train"]
+            },
+            {
+                "release train": ["Release Train"]
+            },
+            {
+                "interface": ["Immutable interfaces"]
+            },
+            {
+                "interfaces": ["Immutable interfaces"]
+            },
+            {
+                "immutable interfaces": ["Immutable interfaces"]
+            },
+            {
+                "compatibility": ["App Detection by Platform"]
+            },
+            {
+                "public information": ["Questions & Answers"]
+            },
+            {
+                "app awareness": ["App Detection by Platform"]
+            },
+            {
+                "questions": ["Questions & Answers"]
+            },
+            {
+                "answers": ["Questions & Answers"]
+            },
+            {
+                "socumentation": ["Questions & Answers"]
+            },
+            {
+                "user group": ["User Group"]
+            },
+            {
+                "quality assurance": ["User Group"]
+            },
+            {
+                "quality": ["User Group"]
+            },
+            {
+                "special interest group": ["User Group"]
             }
         ]
+
         
 + Response 401 (text/plain)
 
@@ -188,7 +133,7 @@ Annotation is an API allowing clients to get templates and recommendations based
 + Response 403 (text/plain)
 
         Cannot find the requested resource here
-        
+
 ## Experts collection [/experts?expertise=]
 
 ### Returns a collection of software experts [GET]
@@ -209,9 +154,9 @@ If successful, this method returns a collection of Expert resources in the respo
         
         [
             {
-                "contact": "+49 (9131) 7-30483",
-                "dept": " CT RTC SSI ADM-DE",
-                "email": "@siemens.com",
+                "contact": "+49 (11111) 1-11111",
+                "dept": " Department",
+                "email": "@domain.com",
                 "expertise": [
                     "Software Architecture",
                     "Architecture Definition and Management",
@@ -236,14 +181,14 @@ If successful, this method returns a collection of Expert resources in the respo
                     "Tactical Design",
                     "Software Ecosystems"
                 ],
-                "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/schoenberger_a.jpg",
+                "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/picture_a.jpg",
                 "initials": null,
-                "name": "Andreas Schoenberger"
+                "name": "FirstName Lastname"
             },
             {
                 "contact": "+49 (173) 2560707",
-                "dept": "CT RDA SSI",
-                "email": "christopher.drexler@siemens.com",
+                "dept": "Department",
+                "email": "@domain.com",
                 "expertise": [
                     "Software Architecture",
                     "Architecture Definition and Management",
@@ -261,9 +206,9 @@ If successful, this method returns a collection of Expert resources in the respo
                     "Tactical Design",
                     "Software Ecosystems"
                 ],
-                "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/drexler_c.jpg",
+                "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/picture_c.jpg",
                 "initials": null,
-                "name": "Christopher Drexler"
+                "name": "Firstname LastName"
             }
         ]
 
@@ -290,49 +235,49 @@ If successful, this method returns a collection of KnowledgeMethod resource in t
                 "description": "Model-based architecture simulation combines a model based architecture development approach with a simulation method",
                 "experts": [],
                 "name": "Model-Based Architecture Simulation",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_architecture_simulation/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/model-based_architecture_simulation/index.htm"
             },
             {
                 "description": "Model-based architecture development approaches provide ways to handle the complexity of modern system and software architectures",
                 "experts": [],
                 "name": "Model-Based Architecture Development",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_architecture_development/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/model-based_architecture_development/index.htm"
             },
             {
                 "description": "Model-based architecture simulation combines a model based architecture development approach with a simulation method",
                 "experts": [],
                 "name": "Model-Based Architecture Simulation",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_architecture_simulation/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/model-based_architecture_simulation/index.htm"
             },
             {
                 "description": "The approach identifies whether or not independent applications that run on the same hardware receive enough resources for meeting their performance goals at all times",
                 "experts": [],
                 "name": "Performance Engineering for Container-based Ecosystems",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/performance_engineering_for_container-based_ecosystems/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/performance_engineering_for_container-based_ecosystems/index.htm"
             },
             {
                 "description": "Model-based approaches provide ways to handle the complexity of modern system and software developments",
                 "experts": [],
                 "name": "Seamless Software and System Modeling",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/seamless_software_and_system_modeling/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/seamless_software_and_system_modeling/index.htm"
             },
             {
                 "description": "For Product Line Engineering a model-based approach helps to fully gain the benefits of Product Line Engineering by providing a consistent and structured basis for analysis",
                 "experts": [],
                 "name": "Model-Based Product Line Engineering",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_product_line_engineering/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/model-based_product_line_engineering/index.htm"
             },
             {
                 "description": "Model-driven development approaches provide ways to handle the complexity of modern system and software developments",
                 "experts": [],
                 "name": "Model Driven Development",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model_driven_development/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/model_driven_development/index.htm"
             },
             {
                 "description": "For Product Line Engineering a model-based approach helps to fully gain the benefits of Product Line Engineering by providing a consistent and structured basis for analysis",
                 "experts": [],
                 "name": "Model-Based Product Line Engineering",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_product_line_engineering/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/model-based_product_line_engineering/index.htm"
             },
             {
                 "description": "The Software Ecosystem (SECO) modeling appraoch allows for structured capturing of ecosystems and their contained roles/actors and corresponding value flows",
@@ -340,30 +285,30 @@ If successful, this method returns a collection of KnowledgeMethod resource in t
                     {
                         "contact": null,
                         "dept": "CT RDA SSI SDT-IN",
-                        "email": "@siemens.com",
+                        "email": "@domain.com",
                         "expertise": [
                             "Design thinking",
                             "Usability"
                         ],
                         "imageurl": null,
                         "initials": null,
-                        "name": "Bettina Maisch"
+                        "name": "Bettina Name"
                     }
                 ],
                 "name": "Software Ecosystem Modeling",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/software_ecosystem_modeling/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/software_ecosystem_modeling/index.htm"
             },
             {
                 "description": "Model-based development approaches provide ways to handle the complexity of modern system and software systems",
                 "experts": [],
                 "name": "Model Quality Assurance",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model_quality_assurance/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/model_quality_assurance/index.htm"
             },
             {
                 "description": "Model-based architecture development approaches provide ways to handle the complexity of modern system and software architectures",
                 "experts": [],
                 "name": "Model-Based Architecture Development",
-                "url": "http://md1330uc.ww002.siemens.net/amelie_dev1/view_extern/model-based_architecture_development/index.htm"
+                "url": "http://server.domain.net/amelie_dev1/view_extern/model-based_architecture_development/index.htm"
             }
         ]
 
@@ -457,6 +402,10 @@ If successful, this method returns a collection of different document types, eg.
             {
                 "id": 4,
                 "name": "Use case"
+            },
+            {
+                "id": 5,
+                "name": "Architecture Box"
             }
         ]
 
