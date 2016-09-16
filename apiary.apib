@@ -5,6 +5,226 @@ HOST: http://131.159.30.93:9999
 
 Annotation is an API allowing clients to get templates and recommendations based on different contexts and types.
 
+## Process Document [/processDocument]
+
+### Posts text to the server, which should be passed to the given datasources and interpreted with the given doctype and user context [POST]
+
+If successful, this method returns a collection of results from the given datasources in the response body.
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Basic 12345
+
+    + Body
+    
+            [
+                {
+                    "content": "The Yummy Inc online application will be deployed onto a J2EE application server Websphere Application Server version 6, as it is already the application server use for internal applications. J2EE security model will be reused. Data persistence will be addressed using a relational database."
+                }
+            ]
+            
++ Response 200 (application/json)
+    
+        [    
+            {
+                "begin": "58",
+                "end": "61",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "Experts",
+                "URI": "amelie/webapi/km/experts?expertise=WebSphere",
+                "token": "WebSphere",
+                "conceptType": "Expert"
+            },
+            {
+                "begin": "",
+                "end": "",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "Experts",
+                "URI": "amelie/webapi/km/experts?expertise=J2EE",
+                "token": "J2EE",
+                "conceptType": "Expert"                
+            },
+            {
+                "begin": "",
+                "end": "",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "Methods",
+                "URI": "amelie/webapi/km/knowledgemethods?searchstring=WebSphere",
+                "token": "WebSphere",
+                 "conceptType": "KnowledgeMethod"
+            },
+            {
+                "begin": "",
+                "end": "",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "Methods",
+                "URI": "amelie/webapi/km/knowledgemethods?searchstring=J2EE",
+                "token": "J2EE",
+                "conceptType": "KnowledgeMethod"
+            },
+            {
+                "begin": "",
+                "end": "",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "Templates",
+                "URI": "amelie/webapi/km/doctemplates?searchstring=WebSphere",
+                "token": "WebSphere",
+                "conceptType": "Template"
+            },
+            {
+                "begin": "",
+                "end": "",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "Templates",
+                "URI": "amelie/webapi/km/doctemplates?searchstring=J2EE",
+                "token": "J2EE",
+                "conceptType": "Template"
+            },
+            {
+                "begin": "",
+                "end": "",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "DBPedia",
+                "URI": "http://dbpedia.org/resources/WebSphere",
+                "token": "WebSphere",
+                "conceptType": "custom"
+            },
+            {
+                "begin": "",
+                "end": "",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "DBPedia",
+                "URI": "http://dbpedia.org/resources/J2EE",
+                "token": "J2EE",
+                "conceptType": "custom"
+            },
+            {
+                "begin": "",
+                "end": "",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "Amelie",
+                "URI": "https://132.186.214.9:8443/amelie/WebSphere",
+                "token": "WebSphere",
+                "conceptType": "Amelie"
+            },
+             {
+                "begin": "",
+                "end": "",
+                "similarityScore": "0.9975621993060231",
+                "support": "404",
+                "types": "Amelie",
+                "URI": "https://132.186.214.9:8443/amelie/J2EE",
+                "token": "J2EE",
+                "conceptType": "Amelie"
+            }
+        ]
+
+## Get Meta Information [/getMetaInformation]
+
+### Posts an uri to the server, which return  [POST]
+
+If successful, this method returns a collection of results from the given datasources in the response body.
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Basic 12345
+
+    + Body
+    
+            [
+                {
+                    "uri": "http://dbpedia.org/resource/MySQL"
+                }
+            ]
+            
++ Response 200 (application/json)
+    
+        [    
+            {
+             
+            },
+            {
+                         
+            }
+        ]
+
+## Get Software Solutions [/getSoftwareSolutions]
+
+### Posts an uri to the server, which return  [POST]
+
+If successful, this method returns a collection of results in the response body.
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Basic 12345
+
+    + Body
+    
+            [
+                {
+                     "uri": "http://dbpedia.org/resource/Relational_database"
+                }
+            ]
+            
++ Response 200 (application/json)
+    
+        [    
+            {
+             
+            },
+            {
+                         
+            }
+        ]
+        
+## Get Alternatives [/getAlternative]
+
+## Get Alternatives [getAlternative]
+
+### Posts an uri to the server, which return  [POST]
+
+If successful, this method returns a collection of results in the response body.
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Basic 12345
+
+    + Body
+    
+            [
+                {
+                    "uri": "http://dbpedia.org/resource/Java_Platform,_Enterprise_Edition"
+                }
+            ]
+            
++ Response 200 (application/json)
+    
+        [    
+            {
+             
+            },
+            {
+                         
+            }
+        ]
+
 ## Data source Collection [/datasources]
 
 ### Delivers provided data sources like methods, templates, experts, dbpedia, etc. [GET]
@@ -53,7 +273,7 @@ Annotation is an API allowing clients to get templates and recommendations based
                 "name": "Amelie",
                 "uri": "https://132.186.214.9:8443/amelie/webapi/",
                 "imageurl": "https://132.186.214.9:8443/amelie/resources/images/amelie/amelie.ico"
-            }
+            },
         ]
 
         
@@ -64,124 +284,87 @@ Annotation is an API allowing clients to get templates and recommendations based
 + Response 403 (text/plain)
 
         Cannot find the requested resource here
+        
+## DocTypes Collection [/doctypes]
 
-## Process Document [/processDocument]
+### Get provided document types [GET]
+             
+If successful, this method returns a collection of different document types, eg. 'Interface specification'.
 
-### Posts text to the server, which should be passed to the given datasources and interpreted with the given doctype and user context [POST]
-
-If successful, this method returns a collection of results from the given datasources in the response body.
-
-+ Request (application/json)
-
-    + Headers
-    
-            Authorization: Basic 12345
-
-    + Body
-    
-            [
-                {
-                    "user": "domain\\user",
-                    "doctype": "Solution Architecture",
-                    "datasources": 
-                    [
-                        {
-                            "name": "Experts",
-                            "uri": "https://132.186.214.9:8443/amelie/webapi/km/experts?expertise="
-                        },
-                        {
-                            "name": "Methods",
-                            "uri": "https://132.186.214.9:8443/amelie/webapi/km/knowledgemethods?searchstring="
-                         },
-                         {
-                           "name": "Templates",
-                            "uri": "https://132.186.214.9:8443/amelie/webapi/km/doctemplates?searchstring="
-                        },
-                        {
-                            "name": "DBPedia",
-                            "uri": "http://dbpedia.org/"
-                        },
-                        {
-                            "name": "Amelie",
-                            "uri": "https://132.186.214.9:8443/amelie/webapi/km/"
-                        }
-                    ],
-                    "content": "The Yummy Inc online application will be deployed onto a J2EE application server Websphere Application Server version 6, as it is already the application server use for internal applications. J2EE security model will be reused. Data persistence will be addressed using a relational database."
-                }
-            ]
-            
 + Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "Interface specification"
+            },
+            {
+                "id": 2,
+                "name": "Feature Specification"
+            },
+            {
+                "id": 3,
+                "name": "Solution Architecture"
+            },
+            {
+                "id": 4,
+                "name": "Use case"
+            },
+            {
+                "id": 5,
+                "name": "Architecture Box"
+            }
+        ]
+
+## Document Type Template Collection [/doctypetemplates]
+
+### Get document type templates related to the id of the given document type  [GET /doctypetemplates?docTypeId=]
+
+If successful, this method returns a collection of different document type templates based on the id of the given document type, eg. 1 = 'Interface specification'.
+
++ Parameters
     
-        [    
+    + docTypeId: 1
+    
++ Response 200 (application/json)
+        
+        [
             {
-                "start": "58",
-                "end": "61",
-                "token": "WebSphere",
-                "types": "Experts",
-                "uri": "https://132.186.214.9:8443/amelie/webapi/km/experts?expertise=WebSphere"
+                "id": 23
+                "name": "Templates",
+                "type": "file",
+                "html": "",
+                "uri": "https://132.186.214.9:8443/amelie/files/templates/"
             },
             {
-                "start": "",
-                "end": "",
-                "token": "J2EE",
-                "types": "Experts",
-                "uri": "https://132.186.214.9:8443/amelie/webapi/km/experts?expertise=J2EE"
+                "id": 56
+                "name": "Templates",
+                "type": "html",
+                "html": "",
+                "uri": ""
+            }
+        ]
+
+### Get document template by type [GET/doctemplates/byType/{type}]
+
++ Parameters
+
+    + type: requirements
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "id":  3,
+                "type": requirements",
+                "name": "Requirements",
+                "html": "<head><body><table></table><tr><td>Requirements html template here</td></tr></body></head>"
             },
             {
-                "start": "",
-                "end": "",
-                "token": "WebSphere",
-                "types": "Methods",
-                "uri": "https://132.186.214.9:8443/amelie/webapi/km/knowledgemethods?searchstring=WebSphere"
-            },
-            {
-                "start": "",
-                "end": "",
-                "token": "J2EE",
-                "types": "Methods",
-                "uri": "https://132.186.214.9:8443/amelie/webapi/km/knowledgemethods?searchstring=J2EE"
-            },
-            {
-                "start": "",
-                "end": "",
-                "token": "WebSphere",
-                "types": "Templates",
-                "uri": "https://132.186.214.9:8443/amelie/webapi/km/doctemplates?searchstring=WebSphere"
-            },
-            {
-                "start": "",
-                "end": "",
-                "token": "J2EE",
-                "types": "Templates",
-                "uri": "https://132.186.214.9:8443/amelie/webapi/km/doctemplates?searchstring=J2EE"
-            },
-            {
-                "start": "",
-                "end": "",
-                "token": "WebSphere",
-                "types": "DBPedia",
-                "uri": "http://dbpedia.org/resources/WebSphere"
-            },
-            {
-                "start": "",
-                "end": "",
-                "token": "J2EE",
-                "types": "DBPedia",
-                "uri": "http://dbpedia.org/resources/J2EE"
-            },
-            {
-                "start": "",
-                "end": "",
-                "token": "WebSphere",
-                "types": "Amelie",
-                "uri": "https://132.186.214.9:8443/amelie/WebSphere"
-            },
-             {
-                "start": "",
-                "end": "",
-                "token": "J2EE",
-                "types": "Amelie",
-                "uri": "https://132.186.214.9:8443/amelie/J2EE"
+                "id": 4,
+                "type": requirements"
+                "name": "Technical architecture"
+                "html": "<head><body><table></table><tr><td>Technical architecture html template here</td></tr></body></head>"
             }
         ]
 
@@ -314,7 +497,7 @@ If successful, this method returns a collection of results from the given dataso
 
         Cannot find the requested resource here
 
-## Experts collection [/experts?expertise=]
+## Experts collection [/amelie/webapi/km/experts?expertise=]
 
 ### Returns a collection of software experts [GET]
 
@@ -333,74 +516,68 @@ If successful, this method returns a collection of Expert resources in the respo
 + Response 200 (application/json)
         
         [
-            {
-                "token": "Software+Ecosystem"
+             {
+                "contact": "+49 (11111) 1-11111",
+                "dept": " Department",
+                "email": "sepp@dmueller.com",
+                "expertise": [
+                    "Requirements",
+                    "Software Architecture",
+                    "Architecture Definition and Management",
+                    "Component",
+                    "Architecture Vision",
+                    "Architecture Approach",
+                    "Design",
+                    "Reference Architecture",
+                    "Architecture Review",
+                    "Quality feedback loop",
+                    "Architecture Improvement",
+                    "Forces",
+                    "Architecture Analysis",
+                    "Architecture Process",
+                    "Architecture View",
+                    "Domain Scoping",
+                    "System Scoping",
+                    "Product Line Engineering",
+                    "Traceable Architecture Violation Management",
+                    "Baseline architecture",
+                    "Strategic Design",
+                    "Tactical Design",
+                    "Software Ecosystems"
+                ],
+                "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/seppmueller.jpg",
+                "initials": null,
+                "name": "Sepp Meier"
             },
             {
-                "experts": [
-                {
-                    "contact": "+49 (11111) 1-11111",
-                    "dept": " Department",
-                    "email": "sepp@dmueller.com",
-                    "expertise": [
-                        "Requirements",
-                        "Software Architecture",
-                        "Architecture Definition and Management",
-                        "Component",
-                        "Architecture Vision",
-                        "Architecture Approach",
-                        "Design",
-                        "Reference Architecture",
-                        "Architecture Review",
-                        "Quality feedback loop",
-                        "Architecture Improvement",
-                        "Forces",
-                        "Architecture Analysis",
-                        "Architecture Process",
-                        "Architecture View",
-                        "Domain Scoping",
-                        "System Scoping",
-                        "Product Line Engineering",
-                        "Traceable Architecture Violation Management",
-                        "Baseline architecture",
-                        "Strategic Design",
-                        "Tactical Design",
-                        "Software Ecosystems"
-                    ],
-                    "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/seppmueller.jpg",
-                    "initials": null,
-                    "name": "Sepp Meier"
-                },
-                {
-                    "contact": "+49 (173) 2560707",
-                    "dept": "Department",
-                    "email": "markus@mueller.com",
-                    "expertise": [
-                        "Requirements",
-                        "Software Architecture",
-                        "Architecture Definition and Management",
-                        "Motivation",
-                        "Architecture Vision",
-                        "Design",
-                        "Leading without power",
-                        "Reference Architecture",
-                        "Architecture Review",
-                        "Architecture Process",
-                        "Technical Architecture",
-                        "Product Line Engineering",
-                        "Leadership",
-                        "Strategic Design",
-                        "Tactical Design",
-                        "Software Ecosystems"
-                    ],
-                    "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/picture_c.jpg",
-                    "initials": null,
-                    "name": "Markus Mueller"
-                }
-            ]
+                "contact": "+49 (173) 2560707",
+                "dept": "Department",
+                "email": "markus@mueller.com",
+                "expertise": [
+                    "Requirements",
+                    "Software Architecture",
+                    "Architecture Definition and Management",
+                    "Motivation",
+                    "Architecture Vision",
+                    "Design",
+                    "Leading without power",
+                    "Reference Architecture",
+                    "Architecture Review",
+                    "Architecture Process",
+                    "Technical Architecture",
+                    "Product Line Engineering",
+                    "Leadership",
+                    "Strategic Design",
+                    "Tactical Design",
+                    "Software Ecosystems"
+                ],
+                "imageurl": "https://132.186.214.9:8443/amelie/resources/images/experts/picture_c.jpg",
+                "initials": null,
+                "name": "Markus Mueller"
+            }
         ]
 
-## Knowlegde Methods collection [/knowledgemethods?searchString=]
+## Knowlegde Methods collection [/amelie/webapi/km/knowledgemethods?searchString=]
 
 ### Returns the list of knowledge methods containing the given search string or all, if search string is omitted [GET]
 
@@ -419,9 +596,6 @@ If successful, this method returns a collection of KnowledgeMethod resource in t
 + Response 200 (application/json)
         
         [
-            {
-                "token": "Model+Based"
-            },
             {
                 "knowledgemethods": 
                 [
@@ -508,7 +682,7 @@ If successful, this method returns a collection of KnowledgeMethod resource in t
             }
         ]
 
-## Knowlegde Methods Insert [/knowledgemethods]
+## Knowlegde Methods Insert [/amelie/webapi/km/knowledgemethods]
 
 ### Inserts a new knowledge method resource into the AMELIE database [POST]
 
@@ -574,150 +748,6 @@ If successful, this method returns a KnowledgeMethod resource in the response bo
         
 ## Template Collection [/templates]
 
-## DocTypes Collection [/doctypes]
-
-### Get provided document types [GET]
-             
-If successful, this method returns a collection of different document types, eg. 'Interface specification'.
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": 1,
-                "name": "Interface specification"
-            },
-            {
-                "id": 2,
-                "name": "Feature Specification"
-            },
-            {
-                "id": 3,
-                "name": "Solution Architecture"
-            },
-            {
-                "id": 4,
-                "name": "Use case"
-            },
-            {
-                "id": 5,
-                "name": "Architecture Box"
-            }
-        ]
-
-## Document Type Template Collection [/doctypetemplates]
-
-### Get document type templates related to the id of the given document type  [GET /doctypetemplates?docTypeId=]
-
-If successful, this method returns a collection of different document type templates based on the id of the given document type, eg. 1 = 'Interface specification'.
-
-+ Parameters
-    
-    + docTypeId: 1
-    
-+ Response 200 (application/json)
-        
-        [
-            {
-                "id": 23
-                "name": "Templates",
-                "type": "file",
-                "html": "",
-                "uri": "https://132.186.214.9:8443/amelie/files/templates/"
-            },
-            {
-                "id": 56
-                "name": "Templates",
-                "type": "html",
-                "html": "",
-                "uri": ""
-            }
-        ]
-
-### Get document template by type [GET/doctemplates/byType/{type}]
-
-+ Parameters
-
-    + type: requirements
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id":  3,
-                "type": requirements",
-                "name": "Requirements",
-                "html": "<head><body><table></table><tr><td>Requirements html template here</td></tr></body></head>"
-            },
-            {
-                "id": 4,
-                "type": requirements"
-                "name": "Technical architecture"
-                "html": "<head><body><table></table><tr><td>Technical architecture html template here</td></tr></body></head>"
-            }
-        ]
-
-
-## Recommendation collection [/recommendations]
-
-### Get provided recommendations [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-## Recommendation collection by document type [/recommendations?type=]
-
-### Get provided recommendations by document type [GET]
-
-+ Parameters
-
-    + type: requirements
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
 ## Document templates collection [/doctemplates?searchString=]
 
 ### Returns the list of document templates present in AMELIE [GET]
@@ -759,7 +789,6 @@ If successful, this method returns a collection of DocumentTemplate resource in 
                 "type": "doc"
             }
         ]
-
 
 ## Software expertise collection [/expertise]
 
